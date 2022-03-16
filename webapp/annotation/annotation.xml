@@ -98,6 +98,9 @@
 					</Collection>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="jetCloud.apps.zjblessons.jblesson02.v01.01.zjblessons_base_MaterialsType/MaterialID">
+				<Annotation Term="Common.Label" String="{@i18n&gt;MaterialTextLabel}"/>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

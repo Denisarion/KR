@@ -1,30 +1,80 @@
-<mvc:View
-	controllerName="ControlTaskGrishchenko.ControlTaskGrishchenko.controller.Object"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
-
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}"
+<mvc:View controllerName="ControlTaskGrishchenko.ControlTaskGrishchenko.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic" xmlns:smartform="sap.ui.comp.smartform" xmlns:smartfield="sap.ui.comp.smartfield">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
 		busyIndicatorDelay="{objectView>/delay}">
-
 		<semantic:titleHeading>
-			<Title text="{MaterialText}" />
+			<Title text="{MaterialText}"/>
 		</semantic:titleHeading>
-
+			<IconTabBar id="IconTabBar" stretchContentHeight="false" backgroundDesign="Transparent" applyContentPadding="false"
+			select="onSelectIconTabBar" headerMode="Inline" expandable="true" expanded="true">
+				<items>
+			<IconTabFilter icon="sap-icon://accept" text="Accept}" >
+				<smartform:SmartForm id="sMaterials" useHorizontalLayout="false" editable="{objectView>/editMode}"
+						editTogglable="true" editToggled="onEditToggled">
+					
+						
+							<smartform:Group label="{i18n>MainInf}">
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{MaterialText}" visible="true" editable="false"/>
+								</smartform:GroupElement>
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{MaterialDescription}" visible="true" editable="false"/>
+								</smartform:GroupElement>
+							</smartform:Group>
+							<smartform:Group label="{i18n>RegInf}">
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{RegionText}" visible="true" editable="false"/>
+									<smartfield:SmartField value="{RegionID}" visible="false" editable="false"/>
+								</smartform:GroupElement>
+							</smartform:Group>
+							<smartform:Group label="{i18n>PlantInf}">
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{PlantText}" visible="true" editable="false"/>
+									<smartfield:SmartField value="{PlantID}" visible="false" editable="false"/>
+								</smartform:GroupElement>
+							</smartform:Group>
+							<smartform:Group label="{i18n>CreInf}">
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{Created}" visible="true" editable="false"/>
+								</smartform:GroupElement>
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{CreatedByFullName}" visible="true" editable="false"/>
+								</smartform:GroupElement>
+							</smartform:Group>
+							<smartform:Group label="{i18n>ModInf}">
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{Modified}" visible="true" editable="false"/>
+								</smartform:GroupElement>
+								<smartform:GroupElement>
+									<smartfield:SmartField value="{ModifiedByFullName}" visible="true" editable="false"/>
+								</smartform:GroupElement>
+							</smartform:Group>
+						</smartform:SmartForm>
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://arrow-bottom" text="More" >
+				<Panel expandable="true" headerText="Panel with a header text" width="auto" class="sapUiResponsiveMargin">
+		<content>
+			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+		</content>
+	</Panel>
+	<Panel id="expandablePanel" expandable="true" expand="onExpand" width="auto" class="sapUiResponsiveMargin">
+		<headerToolbar>
+			<OverflowToolbar active="true" press="onOverflowToolbarPress">
+				<Title text="Clickable Custom Toolbar with a header text" />
+				<ToolbarSpacer />
+				<Button icon="sap-icon://settings" />
+				<Button icon="sap-icon://drop-down-list" />
+			</OverflowToolbar>
+		</headerToolbar>
+		<content>
+			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+		</content>
+	</Panel>
+			</IconTabFilter>
+			</items>
+			</IconTabBar>
 		<semantic:headerContent>
-			<ObjectNumber
-			/>
+			<ObjectNumber/>
 		</semantic:headerContent>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
-		</semantic:sendEmailAction>
-
-
 	</semantic:SemanticPage>
-
 </mvc:View>

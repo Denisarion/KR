@@ -13,6 +13,7 @@
 			persistencyKey="pk_MaterialsSF" enableAutoBinding="true" showFullScreenButton="true">
 				<Table id="table" width="auto" noDataText="{worklistView>tablenoDataText}"
 				busyIndicatorDelay="{worklistView>tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+					
 					<items>
 						<ColumnListItem type="Navigation" press="onPress"></ColumnListItem>
 					</items>
